@@ -1,12 +1,9 @@
 package visiplus.pf.screencast.s_01_scala
 
-
 object Demo {
 
   @main
-  def hello(): Unit =
-    println("Hello World!")
-
+  def hello(): Unit = println("Hello World!")
 
   val salaire: Double = 1000.0
 
@@ -19,7 +16,6 @@ object Demo {
   // cette variable est initialisée uniquement si elle est utilisée
   lazy val bonjour2 = "bonjour"
 
-
   val salaires: List[Double] = List(1000.0, 2000.0, 2500.0, 3000.0)
 
   println(s"salaires: ${salaires.mkString(", ")}")
@@ -28,11 +24,9 @@ object Demo {
     for (salaire <- salaires)
       yield salaire * (1.0 + taux)
 
-  def masseSalaire(salaires: List[Double]): Double =
-    salaires.sum
+  def masseSalaire(salaires: List[Double]): Double = salaires.sum
 
-  def factoriel(n: Int): Int =
-    (1 to n).product
+  def factoriel(n: Int): Int = (1 to n).product
 
   // remarquez le return
   def f(n: Int): Int = {
@@ -41,7 +35,7 @@ object Demo {
     n * (1 + c) // ceci calcule le résultat de la fonction
   }
 
-  //Contrairement à la plupart des langages de programmation, la structure if n'est pas une instruction, mais une expression.
+  // Contrairement à la plupart des langages de programmation, la structure if n'est pas une instruction, mais une expression.
   //  Il est donc possible d'inclure la structure if dans d'autres expressions.
   val activated = true
 
@@ -49,9 +43,7 @@ object Demo {
     if (activated) "activé"
     else "désactivé"
 
-  val cmd: Unit = {
-    println(s"la fonction est $affichageActivation")
-  }
+  val cmd: Unit = println(s"la fonction est $affichageActivation")
 
   // val valeurs1: List[Int] = List(1)
   // val valeurs2: List[Int] = Nil // ou List()
@@ -74,10 +66,11 @@ object Demo {
 
   println(s"john: ${Utilisateur(id = "123", nom = "John", âge = 24)}")
 
-  val baseDeDonnees: Map[String, Utilisateur] = Map(
-    "123" -> Utilisateur(id = "123", nom = "John", âge = 24),
-    "456" -> Utilisateur(id = "456", nom = "Mary", âge = 25)
-  )
+  val baseDeDonnees: Map[String, Utilisateur] =
+    Map(
+      "123" -> Utilisateur(id = "123", nom = "John", âge = 24),
+      "456" -> Utilisateur(id = "456", nom = "Mary", âge = 25)
+    )
 
   val cmd3 = {
     println(s"base de données:")
