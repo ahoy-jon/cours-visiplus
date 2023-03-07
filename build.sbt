@@ -12,7 +12,7 @@ scalaVersion := "3.2.2"
 //dépendances
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % Test
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.7.0"
-libraryDependencies += "dev.zio" %% "zio-direct" % "1.0.0-RC7"
+libraryDependencies += "dev.zio" %% "zio-direct" % "1.0.0-RC4"
 
 
 

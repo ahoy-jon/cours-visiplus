@@ -1,6 +1,16 @@
 
+import scala.util.*
+import scala.util.control.NonFatal
 
-import scala.util.Try
+
+object Try:
+  def apply[T](r: => T): Try[T] =
+    try Success(r)
+    catch case NonFatal(e) => Failure(e)
+
+
+Try("plouf")
+
 
 def divide(num: Int, den: Int): Try[Int] = Try {
   if (den == 0) throw new ArithmeticException("Division by zero")

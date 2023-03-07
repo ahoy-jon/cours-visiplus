@@ -305,7 +305,53 @@ val nameX: String | Null = ???
 
 val xxx = nameX.fold(_.size, 0)
 
+
+object Toto:
+  extension (str:String)
+    def toto: String = str + "toto"
+
+
+import Toto._
+
+val who = "Who ?".toto
+
 def toOpt(str: String | Null): Option[String] =
   str match
     case null      => None
     case x: String => Some(x)
+
+
+object H {
+
+  val greeting: String = "Bonjour"
+  val name = "Daniel"
+  val message: String = s"$greeting $name, comment allez-vous ?"
+  //greeting + " " + name + ", comment allez-vous ?"
+
+  val firstChar: Char = message(0) ; val subString: String = message.substring(0, 4)
+  val length: Int = message.length
+
+  val isEqual: Boolean = "Bonjour" == greeting
+
+
+  val a:Set[Boolean] = Set(true, false)
+  val b:Set[Unit] = Set({})
+  val c:Set[(Boolean, Unit)] = Set((true, {}), (false, {}))
+  val d:Set[(A, B)] = ???
+
+  sealed trait Shape
+  case class Circle(radius: Double) extends Shape
+  case class Rectangle(width: Double, height: Double) extends Shape
+
+
+  val originalList = List(1, 2, 3, 4)
+
+  val newList =
+  originalList.foldRight(List.empty[Int])(
+    (elem, acc) => elem :: acc
+  )
+
+  assert(originalList == newList)
+
+
+}

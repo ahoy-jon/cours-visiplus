@@ -17,23 +17,52 @@
 class Mutable(var int: Int) {
   self =>
   def add(amount: Int): Unit = self.int = self.int + amount
+
+
+  override def toString = s"Mutable(int=$int)"
 }
 
-val mutable1 = Mutable(10)
+val mutable1 = new Mutable(10)
 val mutable2 = mutable1
 mutable2.add(10)
 mutable2.add(20)
 
+mutable2
+mutable1
+
+
+
 //@TODO passer la classe en immuable
 case class Immutable(int: Int) {
-  def add(amount: Int): Immutable = Immutable(int + amount)
+  def add(amount: Int): Immutable = copy(int = int + amount)
 }
 
 val immutable1 = Immutable(10)
-val immutable2 =
-  immutable1
-    .add(10)
-    .add(20)
+val immutable2 = immutable1.add(10).add(20)
+  
+immutable1
+  
+
+
+
+
+case class CompteBancaireImmutable(solde: Double, id:String):
+  def retirer(montant: Double): CompteBancaireImmutable = copy(solde = solde - montant)
+  def deposer(montant: Double): CompteBancaireImmutable = copy(solde = solde + montant)
+
+
+
+val compte1 = CompteBancaireImmutable(100.0, "1")
+val compte2 = compte1.deposer(10.0)
+
+val compte3 = compte2.retirer(20.0).retirer(30.0)
+
+println(compte1.solde) // 100.0
+println(compte2.solde) // 110.0
+println(compte3.solde) //  60.0
+println(compte3.solde - compte1.solde) // 40.0
+
+
 
 
 
